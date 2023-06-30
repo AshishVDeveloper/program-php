@@ -1,0 +1,10 @@
+<select name="users" onchange="select_state(this.value)">
+  <option value="">Select State:</option>
+  <option value="1"></option>
+  <option value="2"></option>
+  </select>
+  <select name="users" onchange="select_city(this.value)">
+  <option value="">Select State:</option>
+  <option value="1"></option>
+  <option value="2"></option>
+  </select>

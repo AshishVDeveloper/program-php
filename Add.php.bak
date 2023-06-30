@@ -1,0 +1,49 @@
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ashish_db";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // collect value of input field
+  
+    $name = $_POST['name']; 
+    $email_id = $_POST['email']; 
+	$mobile_no = $_POST['mobile']; 
+    $address = $_POST['address']; 
+
+ 
+  if (empty($name)) {
+    echo "Name is empty</br>";
+  } if (empty($email_id)) {
+    echo "Email_Id is empty</br>";
+  } if (empty($mobile_no)) {
+    echo "mobile No is empty</br>";
+  }if (empty($address)) {
+    echo "Address is empty</br>";
+  }
+  echo '<a href = "index.html"><button class="button" type="button">Go Back</button></a></br>';
+ 
+  $sql = "INSERT INTO tbl_employee ( name, email_id, mobile_no, address)
+VALUES ('$name', '$email_id',$mobile_no,'$address')";
+if ($conn->query($sql) === TRUE) {
+  echo "<b>New record created successfully</b></br>";
+     echo $name."</br>";
+     echo $email_id."</br>";
+     echo $mobile_no."</br>";
+     echo $address."</br>";
+   echo '<b>I want to Add One More data</b>&nbsp &nbsp<a href = "index.html">Click Here</a><br>';
+   echo 'I want to See All data <a href = "Datalist.php">Click Here</a>';
+} else {
+  echo "mobile no is alredy in record";
+}
+}
+
+?>
+

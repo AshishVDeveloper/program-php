@@ -1,0 +1,16 @@
+
+<?php
+include 'auth.php';
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // collect value of input field
+	$mobile_no = $_POST['mobile']; 
+  $sql = "DELETE  FROM  tbl_employee WHERE mobile_no='$mobile_no'";
+if ($conn->query($sql) === TRUE) {
+  echo "Deleted successfully</br>";
+  echo 'I want to delete one more data<a href = "delete.html">Click Here</a><br><br>';
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+	}}
+	}
+	
+?>

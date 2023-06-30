@@ -1,0 +1,14 @@
+<html>
+<title>test page</title>
+<body>
+<form method="post" action=Delete.php>
+Name: <input type="text" name="dname"><br><br>
+E-mail: <input type="text" name="email"><br><br>
+Mobile No: <input type="text" name="mobile"><br><br>
+
+<input type="submit" value="Delete"><br><br>
+If You want to Add  the data <a href = "index.html">Click Here</a><br><br>
+If You want to Update data <a href = "update.html">Click Here</a><br><br>
+</form>
+</body>
+</html>

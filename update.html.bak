@@ -1,0 +1,15 @@
+<html>
+<title>test page</title>
+<body>
+<form method="post" action=Update.php>
+<P>MOBILE NO IS MANDATORY</P></br>
+Name: <input type="text" name="name"><br><br>
+E-mail: <input type="text" name="email"><br><br>
+Mobile No: <input type="text" name="mobile"required><br><br>
+address: <textarea name="address" rows="5" cols="40"></textarea><br><br>
+<input type="submit" value="Update"><br><br>
+If You want to Add  the data <a href = "index.html">Click Here</a><br><br>
+If You want to delete data <a href = "delete.html">Click Here</a><br><br>
+</form>
+</body>
+</html>

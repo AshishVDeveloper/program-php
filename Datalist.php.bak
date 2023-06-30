@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table{
+	 border: 1px solid black;
+	padding:10px;
+	
+}
+th, td {
+    border: 1px solid black;
+	padding:20px;
+}
+.button{width:50%:}
+</style>
+</head>
+<body>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ashish_db";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+} 
+
+
+
+if(!empty($_REQUEST['mode']) && $_REQUEST['mode']=='D')
+{
+	$id = $_GET["employe_id"]; 
+   $sql = "DELETE  FROM  tbl_employee WHERE employe_id='$id'";
+if ($conn->query($sql) === TRUE) {
+  echo "Record Deleted successfully</br>";
+  echo 'I want to delete one more data1<a href = "delete.html">Click Here</a><br><br>';
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+	}
+	
+
+$sql = "SELECT * FROM tbl_employee";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo '<table style="width=50%"><tr><th>ID</th><th>Name</th><th>Email ID</th><th>Address</th><th>Delete</th><th>Update</th></tr>';
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["employe_id"]. "</td><td>" . $row["name"]. "</td><td>" . $row["email_id"]. "</td><td>" . $row["address"]. "</td>";
+     echo '<td><a href="Datalist.php?mode=D&employe_id='.$row['employe_id'].'"><button class="button" type="button">Delete</button></a>&nbsp &nbsp <a href = "delete.html"><button class="button" type="button">Update</button></a></td></tr>';
+	}
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+
+$conn->close();
+	
+?>
+</body>
+</html>
